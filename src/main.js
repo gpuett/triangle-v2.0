@@ -1,22 +1,17 @@
-import { Entry } from './journal.js';
-import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
+import { Triangle } from './triangle.js';
 
-$(document).ready(function() {
-  $("#journal-form").submit(function(event) {
+
+$(document).ready(function(){
+  $("#check").submit(function(event){
     event.preventDefault();
-    var inputTitle = $("#title").val();
-    var inputBody = $("#body").val();
-    var newEntry = new Entry(inputTitle, inputBody);
-    var output = newEntry.countWords();
-    var numVowels = newEntry.countVowels();
-    var numCons = newEntry.countConsonants();
-    var sentence = newEntry.getTeaser();
-    $("#output").append("<li>" + inputTitle + " -Words: " + output + " -Vowels: " + numVowels + " -Consonants " + numCons + " Teaser: " + sentence + "</li>");
+    var side1 = parseInt($("#sideA").val());
+    var side2 = parseInt($("#sideB").val());
+    var side3 = parseInt($("#sideC").val());
+    var triangle = new Triangle(side1, side2, side3);
+    var result = triangle.checkType();
 
-  $("#title").val("");
-  $("#body").val("");
+    $("#triangleType").text(result);
+
   });
 });
