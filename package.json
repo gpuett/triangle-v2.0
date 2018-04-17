@@ -7,7 +7,8 @@
     "build": "webpack --mode development",
     "start": "npm run build; webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "coverage": "istanbul cover ./test.js"
   },
   "keywords": [],
   "author": "",
@@ -24,10 +25,12 @@
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",
+    "karma-firefox-launcher": "^1.1.0",
     "karma-jasmine": "^1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-jquery": "^0.2.2",
     "karma-webpack": "^2.0.13",
+    "nyc": "^11.6.0",
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^4.0.1",
@@ -36,6 +39,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.0",
+    "istanbul": "^0.4.5",
     "popper.js": "^1.14.3"
   }
 }
